@@ -1,5 +1,5 @@
 <?php
-    require 'modelos/usuariom.php';
+    require 'modelos/actualizarm.php';
     class Usuario{
         private $userModel;
 
@@ -28,10 +28,9 @@
     
             switch($parametros[0]){
 
-                case 'insertarUsuario':
-                return $this->userModel->agregarUsuario($array);
+                case 'actualizarUsuario':
+                return $this->userModel->actualizarUsuario($array);
                 break;
-
                 default:
                 echo 'Error';
                 break;
