@@ -10,7 +10,7 @@ abstract class DBAbstractModel {
     private static $db_host = 'localhost';
     private static $db_user = 'root';
     private static $db_pass = '';
-    protected $db_name = 'people';
+    protected $db_name = 'reparto';
     protected $query = null;
     protected $rows = array();
     private $conn;

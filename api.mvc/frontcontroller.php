@@ -44,7 +44,7 @@ $recurso = array_shift($peticion);//
 
 //echo $recurso;
 
-$recursos_existentes = array('contacto', 'usuario','solicitud'); //Se ponen en singular
+$recursos_existentes = array('contacto', 'usuario','solicitud', 'actualizar'); //Se ponen en singular
 
 
 // Comprobar si existe el recurso

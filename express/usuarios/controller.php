@@ -8,10 +8,11 @@ function handler()
     $event = VIEW_LOGIN_USER;
     $uri = $_SERVER['REQUEST_URI'];
     
-    $peticiones = array(SET_USER, GET_USER, DELETE_USER, EDIT_USER,
+    $peticiones = array(GET_USER, EDIT_USER,
         VIEW_SET_USER, VIEW_GET_USER, VIEW_DELETE_USER,
         VIEW_EDIT_USER,VIEW_LOGIN_USER,VIEW_FORMULARIO_USER,
-        VIEW_FORMULARIO_PANEL,ADD_USER,FORMULARIO_CERRAR_SESION, FORMULARIO_VALIDAR);
+        VIEW_FORMULARIO_PRINCIPAL,ADD_USER,FORMULARIO_CERRAR_SESION, 
+        FORMULARIO_VALIDAR, FORMULARIO_EDITAR, FORMULARIO_ELIMINAR, DELETE_USER);
     
     foreach ($peticiones as $peticion) {
         $uri_peticion = MODULO . $peticion . '/';
@@ -29,19 +30,26 @@ function handler()
         case ADD_USER:
             //cho var_dump($user_data);
             $resultado = $usuario->set($user_data);
-            $data = array('mensaje' =>$resultado);
-            retornar_vista(VIEW_FORMULARIO_USER);
+            // $data = array('mensaje' =>$resultado);
+            retornar_vista(VIEW_FORMULARIO_PRINCIPAL);
         break;
-        case VIEW_FORMULARIO_USER:
-            echo VIEW_FORMULARIO_USER;
-            $data = array('mensaje' => 'FORMULARIO REGISTRO');
-            retornar_vista(VIEW_FORMULARIO_USER, $data);
-            break;
-        case SET_USER:
-            $usuario->set($user_data);
-            $data = array('mensaje' => $usuario->mensaje);
-            retornar_vista(VIEW_SET_USER, $data);
-            break;
+        case EDIT_USER:
+            //cho var_dump($user_data);
+            //var_dump($user_data);
+            $resultado = $usuario->edit($user_data);
+            //echo $resultado;
+            //$data = array('mensaje' =>$resultado);
+            retornar_vista(VIEW_FORMULARIO_PRINCIPAL);
+        break;
+        case DELETE_USER:
+            $resultado = $usuario->delete($user_data);
+            retornar_vista(VIEW_FORMULARIO_PRINCIPAL);
+        break;
+        
+        
+        
+        
+        
         case GET_USER:
             $usuario->get($user_data);
             $data = array(
@@ -51,12 +59,12 @@ function handler()
             );
             retornar_vista(VIEW_EDIT_USER, $data);
             break;
-        case DELETE_USER:
-            $usuario->delete($user_data['email']);
-            $data = array('mensaje' => $usuario->mensaje);
-            retornar_vista(VIEW_DELETE_USER, $data);
-            break;
-        case EDIT_USER:
+        // case DELETE_USER:
+        //     $usuario->delete($user_data['email']);
+        //     $data = array('mensaje' => $usuario->mensaje);
+        //     retornar_vista(VIEW_DELETE_USER, $data);
+        //     break;
+            case EDIT_USER:
             $usuario->edit($user_data);
             $data = array('mensaje' => $usuario->mensaje);
             retornar_vista(VIEW_GET_USER, $data);
@@ -73,6 +81,9 @@ function set_obj() {
 function helper_user_data(){
     $user_data = array();
     if ($_POST) {
+        if (array_key_exists('idUsuario', $_POST)) {
+            $user_data['idUsuario'] = $_POST['idUsuario'];
+        }
         if (array_key_exists('nombre', $_POST)) {
             $user_data['nombre'] = $_POST['nombre'];
         }

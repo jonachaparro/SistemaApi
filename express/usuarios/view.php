@@ -14,15 +14,15 @@ $diccionario = array(
         'VIEW_EDIT_USER'=>MODULO.VIEW_EDIT_USER.'/',
         'VIEW_DELETE_USER'=>MODULO.VIEW_DELETE_USER.'/',
         'ADD_USER'=>MODULO.ADD_USER.'/',
-        'VIEW_FORMULARIO_PANEL'=>MODULO.VIEW_FORMULARIO_PANEL.'/'
+        // 'VIEW_FORMULARIO_PANEL'=>MODULO.VIEW_FORMULARIO_PANEL.'/'
     ),
 
     'form_actions'=>array(
-        'SET'=>'/mvc/'.MODULO.SET_USER.'/',
+        // 'SET'=>'/mvc/'.MODULO.SET_USER.'/',
         'GET'=>'/mvc/'.MODULO.GET_USER.'/',
         'DELETE'=>'/mvc/'.MODULO.DELETE_USER.'/',
         'EDIT'=>'/mvc/'.MODULO.EDIT_USER.'/',
-        'ADD_USR'=>'/api.peopleapp.com/express/'.MODULO.ADD_USER.'/'
+        // 'ADD_USR'=>'/api.peopleapp.com/express/'.MODULO.ADD_USER.'/'
     )
 );
 
@@ -41,7 +41,7 @@ $diccionario = array(
     }
 
     function retornar_vista($vista, $data=array()) {
-        global $diccionario;
+       
         $html = get_template($vista);
         
 

@@ -15,12 +15,12 @@
 			if(isset($_POST['login'])){
 				$user = $_POST['user'];
 				$pass = $_POST['pw'];
-				$log = $conect ->query("SELECT * FROM usuario WHERE nombre='$user' AND contrasena='$pass'");
+				$log = $conect ->query("SELECT * FROM administrador WHERE nombre='$user' AND contrasena='$pass'");
 				 if (mysqli_num_rows($log)>0) {
 				 	$row = mysqli_fetch_array($log);
 					$_SESSION["nombre"] = $row['nombre']; 
 					
-					header("Location:../panel/");
+					header("Location:../principal/");
 					
 				}
 				else{

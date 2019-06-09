@@ -2,7 +2,7 @@
 	session_start();
 	include 'Conexion.php';
 	if(isset($_SESSION['nombre'])){
-	echo '<script> window.location="../panel/"; </script>';
+	echo '<script> window.location="../principal/"; </script>';
 	}
 ?>
 <!DOCTYPE html>
@@ -10,15 +10,38 @@
 <head>
 	<title>login Admin</title>
 	<meta charset="utf-8">
+
+	<style>
+		
+		.orientacion{
+			margin: 150px;
+			padding-left: 400px;
+        
+		}
+
+		.redondeado {
+			border-radius: 5px;
+		}
+		
+		.espacioInput{
+			
+			padding-left: 15px;
+        
+		}
+
+
+	</style>
 </head>
 <body>
-	<div class = "espacio">
-		<div class = "centrado">
-			<img src="login.png">
-			<div class = "espacioText">
+	<div class = "orientacion">
+		<div class = "">
+			<h1>Inicio de sesion</h1>
+			<br>
+			
+			<div class = "espacioInput">
 			<form method="post" action= "../validar/">
-				<input type="text" class="form-control" name="user" required><br><br>
-				<input type="password" class="form-control" name="pw" autocomplete="off" required><br><br>
+				<input type="text" class="form-control redondeado" name="user" autocomplete="off" required><br><br>
+				<input type="password" class="form-control redondeado" name="pw" autocomplete="off" required><br><br>
 				<input type="submit" class="btn btn-success" name="login" value="Entrar">
 			</form>
 			</div>
