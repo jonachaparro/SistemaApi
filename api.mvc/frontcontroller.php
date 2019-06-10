@@ -8,6 +8,7 @@
 
 require 'controladores/solicitud.php';
 require 'controladores/usuario.php';
+require 'controladores/Repartidor.php';
 //require 'controladores/hugo.php';
  //require 'usuarios/model.php';
 //require 'usuarios/view.php';
@@ -44,7 +45,7 @@ $recurso = array_shift($peticion);//
 
 //echo $recurso;
 
-$recursos_existentes = array('contacto', 'usuario','solicitud', 'actualizar'); //Se ponen en singular
+$recursos_existentes = array('contacto', 'usuario','repartidor','solicitud', 'actualizar'); //Se ponen en singular
 
 
 // Comprobar si existe el recurso
