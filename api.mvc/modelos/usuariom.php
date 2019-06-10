@@ -86,6 +86,18 @@
     }
 
 
+    public function obtenerRepartidor(){
+        $this->query="SELECT * FROM repartidor";
+        $this->get_results_from_query();
+        if(count($this->rows) > 0){
+           
+            return [
+                "datos"=>$this->rows
+
+            ];
+        }
+    }
+
 
  }
 

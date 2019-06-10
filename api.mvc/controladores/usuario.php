@@ -34,6 +34,11 @@
                 return $this->userModel->eliminarUsuario($array);
                 break;
 
+                case 'obtenerRepartidor':
+                return $this->userModel->obtenerRepartidor();
+                break;
+
+
                 default:
                 echo 'Error';
                 break;
