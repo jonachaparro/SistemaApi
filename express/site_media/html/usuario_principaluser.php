@@ -1,19 +1,17 @@
-
-
-<!-- if(isset($_SESSION['nombre'])) {-->
-    <?php
+<?php
         session_start();
         include 'Conexion.php';
        
         if(isset($_SESSION['nombre'])) {?>
-
 <!DOCTYPE html>
-<html>
-  <head>
-      <title>Dashboard</title>
-      <meta charset="utf-8">
-      <style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 
+    <style>
             *{
                 margin: 0;
                 padding: 0;
@@ -86,100 +84,70 @@
                 padding-left: 265px;
             }
 
-           .tabla{
+            .tabla{
                 width: 850px;
                 text-align: center;
                 margin: 40px auto;               
             }
 
             table{
-               width: 100%;
+            width: 100%;
             }
 
-           .centro{
-              text-align: center; 
-           }
+            .centro{
+            text-align: center; 
+            }
 
+            .contenedor{
+                background: yellow;
+                width: 50%;
+            }
+
+            div {
+                 font-family: Vegur, 'PT Sans', Verdana, sans-serif;
+            }
     </style>
-  </head>
-  <body>
-      
-  <nav class="navegacion">
+</head>
+<body>
+
+<nav class="navegacion">
 			<ul class="menu">
 				<li><a href="#">Inicio</a></li>
-				<li><a href="#">Usuarios</a>
+				<!-- <li><a href="#">Usuarios</a>
                 <ul class="submenu">
 						<li><a href="../formulario/">Registrar</a></li>
 						<li><a href="../editar/">Actualizar</a></li>
 						<li><a href="../eliminar/">Eliminar</a></li>
-					</ul>
+					</ul> -->
                 </li>
 				<li><a href="../repartidor/">Repartidores</a>
 					<ul class="submenu">
 						<li><a href="../addrepartidor/">Registrar</a></li>
 					</ul>
 				</li>
-                <li><a href="../servicio/">Servicios</a></li>
-				<li><a href="../../../reportes/ex.php/">Reporte</a></li>
+                <!-- <li><a href="../servicio/">Servicios</a></li> -->
+				<li><a href="../sugerencias/">Sugerencias</a></li>
 			</ul>
 		</nav>
-
-      
-        <!-- <ul id="button">
-            <li><a href="">Inicio</a></li>
-            <li><a href="../formulario/">Nuevo usuario</a></li>
-            <li><a href="../editar/">Editar</a></li>
-            <li><a href="../eliminar/">Eliminar</a></li>
-            <li><a href="../../../reportes/ex.php/">Reportes</a></li>
-        </ul> -->
-        
-       <div class = "admin">
+    <h2 class = "admin">Bienvenido</h2>
+    <div class = "admin">
         <?php
-            echo "Administrador: " .$_SESSION['nombre'] . "<p/>";
+            echo $_SESSION['nombre'] . "<p/>";
             ?> 
             <a href="../cerrarsesion/"><button>Salir</button></a> 
        </div>
-          
-          
-          <h1 style = "text-align: center">Servicio Express</h1>
             <br>
-          <h3 style = "text-align: center">Usuarios Registrados</h3>
-         
-         
-
-      <div class = "tabla">
-        <table>
-            <tr>
-                <th>Usuario</th>
-                <th>Nombre</th>
-                <th>Correo electronico</th>
-                <th>Sexo</th>
-                <th>Fecha de nacimiento</th>
-            </tr>
-            <?php 
-            $url='http://localhost/api.peopleapp.com/api.mvc/solicitud/obtenerUsuarios/';
-            $data=file_get_contents($url);
-            $prueba = json_decode($data);      
-            ?>
-
-            <?php foreach($prueba->datos as $dato) : ?> 
-            <tr>
-                <td><?php echo ($dato->idUsuario);?></td> 
-                <td><?php echo ($dato->nombre);?></td>
-                <td><?php echo ($dato->correo);?></td>  
-                <td><?php echo ($dato->sexo);?></td>   
-                <td><?php echo ($dato->fechaNacimiento);?></td> 
-                  
-            </tr>
-            <?php endforeach;?>  
-        </table>
-      </div>
-    
-    
-  </body>
+       <h1 style = "text-align: center">Servicio de traslado de productos</h1>
+            <br>
+            <br>
+            <br>
+        <div class = "">
+            <h2 style = "text-align: center">Unete a nuestro equipo de repartidores</h2>
+        </div>
+</body>
 </html>
 <?php
 }else{
-	header("Location:../login/");
+	header("Location:../sesionprueba/");
 }
 ?>

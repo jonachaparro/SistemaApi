@@ -92,9 +92,25 @@
                 color:#999898;
                 margin-bottom:3px;
             }
+
+            .barra{
+                background: #EE5433;
+                width: 1000px;
+                height: 50px;
+                margin: 40px auto;
+            }
+
+            .letra{
+               padding: 10px;
+            }
     </style>
 </head>
 <body>
+    
+    <div class = "barra">
+        <h2 class = "centro letra">Eliminar registro de usuario</h2>
+    </div>
+    
     <div class = "general">
         <form  method="POST" action="/api.peopleapp.com/express/usuarios/delete/">
         <fieldset>
@@ -102,7 +118,7 @@
                         <input type="text" name="idUsuario" autocomplete="off" placeholder="Id usuario"/>
                     </div> 
 
-                    <input type="submit" name="submit" value="Guardar"/>
+                    <input type="submit" name="submit" value="Eliminar"/>
                 </fieldset>  
 
         </form>

@@ -13,7 +13,7 @@ $diccionario = array(
         'VIEW_GET_USER'=>MODULO.VIEW_GET_USER.'/',
         'VIEW_EDIT_USER'=>MODULO.VIEW_EDIT_USER.'/',
         'VIEW_DELETE_USER'=>MODULO.VIEW_DELETE_USER.'/',
-        'ADD_USER'=>MODULO.ADD_USER.'/',
+        'ADD_USER'=>MODULO.ADD_USER.'/'
         // 'VIEW_FORMULARIO_PANEL'=>MODULO.VIEW_FORMULARIO_PANEL.'/'
     ),
 
@@ -41,7 +41,7 @@ $diccionario = array(
     }
 
     function retornar_vista($vista, $data=array()) {
-       
+   
         $html = get_template($vista);
         
 

@@ -1,10 +1,61 @@
-<?php
+<!-- <?php
 	session_start();
 	include 'Conexion.php';
 	if(isset($_SESSION['nombre'])){
-	echo '<script> window.location="../principal/"; </script>';
+	echo '<script> window.location="../principaluser/"; </script>';
 	}
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login Admin</title>
+	<meta charset="utf-8">
+
+	<style>
+		
+		.orientacion{
+			margin: 150px;
+			padding-left: 400px;
+        
+		}
+
+		.redondeado {
+			border-radius: 5px;
+		}
+		
+		.espacioInput{
+			
+			padding-left: 570px;
+        
+		}
+
+		.titulo{			
+			padding-left: 505px;
+		}
+
+
+	</style>
+</head>
+<body>
+	<br>
+	<br>
+	<br>
+	<div class = "">
+		<div class = "">
+			<h1 class = "titulo">Inicio de sesion usuario</h1>
+			<br>
+			
+			<div class = "espacioInput">
+			<form method="post" action= "../validarprueba/">
+				<input type="text" class="form-control redondeado" name="user" autocomplete="off" required><br><br>
+				<input type="password" class="form-control redondeado" name="pw" autocomplete="off" required><br><br>
+				<input type="submit" class="btn btn-success" name="login" value="Entrar">
+			</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html> -->
 
 <!doctype html>
 <html lang="en">
@@ -85,7 +136,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body class="text-center">
-  	  <form method="post" action= "../validar/" class="form-signin">
+  	  <form method="post" action= "../validarprueba/" class="form-signin">
 		<img class="mb-4" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
 			<h1 class="h3 mb-3 font-weight-normal">Inicio de sesion</h1>
 			<label for="inputEmail" class="sr-only">Email address</label>

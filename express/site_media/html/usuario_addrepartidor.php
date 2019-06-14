@@ -1,3 +1,11 @@
+
+
+ <?php
+        session_start();
+        include 'Conexion.php';
+       
+        if(isset($_SESSION['nombre'])) {?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +14,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-
-    
-<style>
+    <style>
             .centro{
                 text-align: center;
             }
 
-            .general{
+           .general{
             width: 500px;
             height: 500px;
             
             margin: auto;
-            padding: 30px;
+            /* padding-left: 80px;  */
             }
 
+
+            .general2{
+            
+            margin: right;
+           
+            }
+
+            
 
             #wrapper {
                 width:450px;
@@ -42,8 +56,8 @@
             fieldset {
                 border-radius:4px;
             
-                padding:20px;
-                border-color:rgba(4, 129, 177, 0.4);
+                padding:15px;
+                border-color:(4, 129, 177, 0.4);
             }
             input,
             textarea {
@@ -95,7 +109,6 @@
                 margin-bottom:3px;
             }
 
-            
             .barra{
                 background: #EE5433;
                 width: 1000px;
@@ -106,63 +119,62 @@
             .letra{
                padding: 10px;
             }
+
     </style>
+
 </head>
 <body>
-
     <div class = "barra">
-        <h2 class = "centro letra">Actualizacion de registros de usuarios</h2>
+        <h2 class = "centro letra">Registro de repartidor</h2>
     </div>
-    <div class = "general">
-        <form name="nombre_formulario" method="POST" action="/api.peopleapp.com/express/usuarios/edit/">
+
+<div class = "general">
+    <form name="nombre_formulario" method="POST" action="/api.peopleapp.com/express/usuarios/addrep/">
+        <fieldset>
+           
+            <div>
+                <input type="text" name="nombre" autocomplete="off" placeholder="Nombre">
+            </div>
+            <div>
+                <input type="text" name="telefono" autocomplete="off" placeholder="Telefono"/>
+            </div>
+            <div>
+                <input type="email" name="correo" autocomplete="off" placeholder="Correo"/>
+            </div>
+           
+            <div>
+                <input type="text" name="sexo" autocomplete="off" placeholder="Sexo"/>
+            </div>
+
+            <div>
+                <input type="text" name="modeloMotocicleta" autocomplete="off" placeholder="Modelo de motocicleta"/>
+            </div>
+
             
-            <fieldset>
-                    <div>
-                        <input type="text" name="idUsuario" autocomplete="off" placeholder="Id usuario"/>
-                    </div> 
-                    <div>
-                        <input type="text" name="nombre"  autocomplete="off" placeholder="Nombre"/>
-                    </div>
+            <input type="submit" name="submit" value="Guardar"/>
+        </fieldset>  
+</form>  
+
+
+
+
+<form name="enviar_archivo_frm" method="POST" action="../archivo/" enctype="multipart/form-data">
+    <fieldset>
+           
+            <div>
+                <input type="file" name="archivo_fls"/>
                 
-                    <div>
-                        <input type="email" name="correo" autocomplete="off" placeholder="Correo"/>
-                    </div>
-                    
+            </div>
+            
+            <input type="submit" name="subir_btn" value="Guardar foto"/>
+        </fieldset>  
+</form>   
+</div>
 
-                    <div>
-                        <input type="text" name="sexo" autocomplete="off" placeholder="Sexo"/>
-                    </div>
-                    
-                    <div>
-                        <input type="text" name="fechaNacimiento" placeholder="Fecha de nacimiento"/>
-                    </div>
-                    
-
-                    <input type="submit" name="submit" value="Actualizar"/>
-                </fieldset>  
-
-                <!-- <?php 
-                    $url='http://localhost/api.peopleapp.com/api.mvc/usuario/actualizarUsuario/';
-                    $data=file_get_contents($url);
-                    $prueba = json_decode($data);      
-                ?>
-         -->
-        </form> 
-    </div>   
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<?php
+}else{
+	header("Location:../login/");
+}
+?>

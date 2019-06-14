@@ -11,10 +11,15 @@ function handler()
     $peticiones = array(GET_USER, EDIT_USER,
         VIEW_SET_USER, VIEW_GET_USER, VIEW_DELETE_USER,
         VIEW_EDIT_USER,VIEW_LOGIN_USER,VIEW_FORMULARIO_USER,
+        
         VIEW_FORMULARIO_PRINCIPAL,ADD_USER,FORMULARIO_CERRAR_SESION, 
-        FORMULARIO_VALIDAR, FORMULARIO_EDITAR, FORMULARIO_ELIMINAR, DELETE_USER);
+        FORMULARIO_VALIDAR, FORMULARIO_EDITAR, FORMULARIO_ELIMINAR, DELETE_USER,
+        FORMULARIO_REPARTIDOR, FORMULARIO_SESIONES, FORMULARIO_SERVICIOS,FORMULARIO_REPARTIDOR_ADD,ADD_REP,
+        FORMULARIO_REPARTIDOR_ARCHIVO, FORMULARIO_SESION_PRUEBA, FORMULARIO_VALIDAR_PRUEBA, 
+        FORMULARIO_PRINCIPAL_USER, FORMULARIO_SUGERENCIAS_USER, FORMULARIO_ENVIAR_SUGERENCIA, FORMULARIO_LOGEO);
     
     foreach ($peticiones as $peticion) {
+    
         $uri_peticion = MODULO . $peticion . '/';
        
         if (strpos($uri, $uri_peticion) == true) {
@@ -23,6 +28,8 @@ function handler()
         }
     }
 
+    
+    $user_data_repartidor = helper_repartidor_data();
     $user_data = helper_user_data();
     $usuario = set_obj();
 
@@ -46,18 +53,11 @@ function handler()
             retornar_vista(VIEW_FORMULARIO_PRINCIPAL);
         break;
         
+        //-------REPARTIDOR-------
         
-        
-        
-        
-        case GET_USER:
-            $usuario->get($user_data);
-            $data = array(
-                'nombre' => $usuario->nombre,
-                'apellido' => $usuario->apellido,
-                'email' => $usuario->email
-            );
-            retornar_vista(VIEW_EDIT_USER, $data);
+        case ADD_REP:
+            $resultado = $usuario->add($user_data_repartidor);
+            retornar_vista(FORMULARIO_REPARTIDOR);
             break;
         // case DELETE_USER:
         //     $usuario->delete($user_data['email']);
@@ -102,6 +102,35 @@ function helper_user_data(){
         }
     } 
     return $user_data;
+}
+
+
+
+
+function helper_repartidor_data(){
+    $user_data_repartidor = array();
+    if ($_POST) {
+        if (array_key_exists('idRepartidor', $_POST)) {
+            $user_data_repartidor['idRepartidor'] = $_POST['idRepartidor'];
+        }
+        if (array_key_exists('nombre', $_POST)) {
+            $user_data_repartidor['nombre'] = $_POST['nombre'];
+        }
+        if (array_key_exists('telefono', $_POST)) {
+            $user_data_repartidor['telefono'] = $_POST['telefono'];
+        }
+        if (array_key_exists('correo', $_POST)) {
+            $user_data_repartidor['correo'] = $_POST['correo'];
+        }
+        if (array_key_exists('sexo', $_POST)) {
+            $user_data_repartidor['sexo'] = $_POST['sexo'];
+        }
+
+        if (array_key_exists('modeloMotocicleta', $_POST)) {
+            $user_data_repartidor['modeloMotocicleta'] = $_POST['modeloMotocicleta'];
+        }
+    } 
+    return $user_data_repartidor;
 }
 
 handler();

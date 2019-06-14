@@ -51,7 +51,7 @@ class Usuario extends DBAbstractModel {
             )
          );
 
-         echo $json;
+        //  echo $json;
          $opciones = array ('http' =>
             array(
                 'method' => 'POST',
@@ -136,6 +136,41 @@ class Usuario extends DBAbstractModel {
      }
 
 
+        //------ METODOS DE REPARTIDORES ------
+
+     
+      # Insertar repartidor
+      public function add($user_data_repartidor = array())
+      {
+      
+        $json = json_encode (
+            array(
+                'nombre' => $user_data_repartidor['nombre'],
+                'telefono' => $user_data_repartidor['telefono'],
+                'correo' => $user_data_repartidor['correo'],
+                'sexo' => $user_data_repartidor['sexo'],
+                'modeloMotocicleta' => $user_data_repartidor['modeloMotocicleta']
+            )
+         );
+          //echo $json;
+           $opciones = array ('http' =>
+              array(
+                  'method' => 'POST',
+                  'header' => 'Content-Type: application/json; charset=utf8',
+                  'content' => $json
+              )
+              );
+  
+          $url = "http://localhost/api.peopleapp.com/api.mvc/usuario/insertarRepartidor/";
+  
+  
+          $context=stream_context_create($opciones);
+          $data = file_get_contents($url,false,$context);
+          $mensaje = json_decode($data);
+         //  return $mensaje->datos;
+      }
+ 
+ 
 
 
     // # Eliminar un usuario

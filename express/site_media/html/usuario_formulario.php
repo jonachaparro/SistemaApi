@@ -1,3 +1,11 @@
+
+
+ <?php
+        session_start();
+        include 'Conexion.php';
+       
+        if(isset($_SESSION['nombre'])) {?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,11 +100,25 @@
                 color:#999898;
                 margin-bottom:3px;
             }
+
+            .barra{
+                background: #EE5433;
+                width: 1000px;
+                height: 50px;
+                margin: 40px auto;
+            }
+
+            .letra{
+               padding: 10px;
+            }
+
     </style>
 
 </head>
 <body>
-<h2 class = "centro">Registro de Usuarios</h2>
+    <div class = "barra">
+        <h2 class = "centro letra">Registro de Usuarios</h2>
+    </div>
 
 <div class = "general">
 <form name="nombre_formulario" method="POST" action="/api.peopleapp.com/express/usuarios/adduser/">
@@ -122,3 +144,8 @@
 </form>    
 </body>
 </html>
+<?php
+}else{
+	header("Location:../login/");
+}
+?>

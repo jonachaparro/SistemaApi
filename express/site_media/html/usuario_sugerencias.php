@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">    
+    <meta name="author" content="Peterson F.">
 
+    <title>Sugerencias del servicio</title>
 
-    
-<style>
+    <style>
             .centro{
                 text-align: center;
             }
@@ -95,7 +93,6 @@
                 margin-bottom:3px;
             }
 
-            
             .barra{
                 background: #EE5433;
                 width: 1000px;
@@ -106,63 +103,52 @@
             .letra{
                padding: 10px;
             }
+
     </style>
-</head>
-<body>
 
-    <div class = "barra">
-        <h2 class = "centro letra">Actualizacion de registros de usuarios</h2>
+  </head>
+
+  <body>
+
+  <!-- <div class="container">
+   <h1 class="formuh1">Contacto rápido.</h1>
+    <form id="form1" class="well col-lg-12" action="../enviarsugerencias/" method="post" name="form1">
+      <div class="row">
+       <div class="col-lg-6">
+        <label>Nombre*</label> <input id="Nombre" class="form-control" type="text" name="Nombre" /> 
+        <label>Email*</label> <input id="Email" class="form-control" type="email" name="Email" />
+       </div>
+        <div class="col-lg-6"><label>Mensaje*</label> 
+         <textarea id="Mensaje" class="form-control" name="Mensaje" rows="4"></textarea>
+        </div>
+        <button class="btn btn-default pull-right" type="submit">Enviar</button>
+      </div>
+    </form>
+  </div> -->
+
+
+  <div class = "barra">
+        <h2 class = "centro letra ">Sugerencias</h2>
+        <FONT FACE="courier">COURIER</FONT>
     </div>
-    <div class = "general">
-        <form name="nombre_formulario" method="POST" action="/api.peopleapp.com/express/usuarios/edit/">
-            
-            <fieldset>
-                    <div>
-                        <input type="text" name="idUsuario" autocomplete="off" placeholder="Id usuario"/>
-                    </div> 
-                    <div>
-                        <input type="text" name="nombre"  autocomplete="off" placeholder="Nombre"/>
-                    </div>
-                
-                    <div>
-                        <input type="email" name="correo" autocomplete="off" placeholder="Correo"/>
-                    </div>
-                    
-
-                    <div>
-                        <input type="text" name="sexo" autocomplete="off" placeholder="Sexo"/>
-                    </div>
-                    
-                    <div>
-                        <input type="text" name="fechaNacimiento" placeholder="Fecha de nacimiento"/>
-                    </div>
-                    
-
-                    <input type="submit" name="submit" value="Actualizar"/>
-                </fieldset>  
-
-                <!-- <?php 
-                    $url='http://localhost/api.peopleapp.com/api.mvc/usuario/actualizarUsuario/';
-                    $data=file_get_contents($url);
-                    $prueba = json_decode($data);      
-                ?>
-         -->
-        </form> 
-    </div>   
-</body>
+  <div class = "general">
+<form name="nombre_formulario" method="POST" action="../enviarsugerencias/">
+    
+    <fieldset>  
+        <div class="row">
+        <div class="col-lg-6">
+                <label>Nombre</label> <input id="Nombre" class="form-control" type="text" name="Nombre" /><br> 
+                <label>Email</label> <input id="Email" class="form-control" type="email" name="Email" />
+        </div>
+            <div class="col-lg-6"><label>Mensaje</label> 
+                <textarea id="Mensaje" class="form-control" name="Mensaje" rows="4"></textarea>
+            </div>
+                <button class="btn btn-default pull-right" type="submit">Enviar</button>
+        </div>
+    </fieldset>  
+   
+</form>  
+  
+    
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
